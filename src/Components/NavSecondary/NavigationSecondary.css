@@ -1,0 +1,46 @@
+.NavigationSecondary {
+  display: flex;
+  width: 300px;
+  mix-blend-mode: normal;
+  font-family: OMORI_GAME;
+  height: 100%;
+}
+.NavHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #25272a;
+  opacity: 0.75;
+}
+#serverName{
+  border-bottom: 2px double black;
+  background-color: #1e2022;
+  width: 100%;
+}
+#serverName >*{
+  width: 100px;
+  height: 25px;
+  top: 35px;
+  margin-left: 45px;
+  font-family: OMORI_GAME, fantasy;
+  font-size: 35px;
+}
+.serverContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  
+}
+.serverContent>*{
+  border: 2px dashed #FFF;
+}
+.serverContent > h4 {
+  margin: 15px 10px 0px 10px;
+  font-size: 25px;
+}
+.serverContent > p {
+  margin: 5px 0 0px 25px;
+  height: 25px;
+  font-size: 20px;
+}
