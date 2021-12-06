@@ -2,7 +2,7 @@ import React from "react"
 
 import NavigationMain from "./Components/NavMain/NavigationMain.js"
 import NavigationSecondary from "./Components/NavSecondary/NavigationSecondary.js"
-import MainChat from "./Components/Chat/Chat.js"
+import Chat from "./Components/Chat/Chat.js"
 import MemberList from "./Components/Chat/MemberList.js"
 
 import "./App.css"
@@ -15,7 +15,7 @@ function App() {
         <div className="Container">
           <NavigationSecondary />
           <div className="Container">
-            <MainChat />
+            <Chat />
             <MemberList />
           </div>
         </div>
