@@ -25,7 +25,6 @@
   opacity: 0.75;
   border-bottom: 2px double black;
   border-left:2px double black ;
-
   background-color: #1e2022;
   width: 100%;
 }
@@ -38,17 +37,31 @@
 }
 .chatConent {
   border-left:2px double black ;
-
+  font-size: 25px;
   width: 100%;
   height: 100%;
+  overflow: auto;
+
   background-color: #1e2022;
 }
 .messageInput{
-  margin: 8px;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   background-color: aliceblue;
+  align-items: center
 }
 .Message{
   padding-left: 15px;
+
+}
+
+#messageTextInput{
+  width: 100%;
+  font-size: 18px;
+}
+#messageSendButton{
+  width: 40px;
+  height: 40px;
 }

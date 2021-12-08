@@ -2,11 +2,10 @@ import React from "react"
 
 
 
-function Message() {
+function Message(props) {
   return (
-    
     <div className="Message">
-        <p>Message N {Math.random().toFixed(4)}</p>
+        <p>{props.props.msg}</p>
     </div>
   )
 }
