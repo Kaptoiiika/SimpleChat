@@ -1,63 +1,70 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Chat.css"
 import Message from "./Message/Message.js"
+import { serverChats } from "../../Data/Data.js"
 
-class Chat extends React.Component {
-  constructor(props) {
-    super(props)
-    this.ChatName = props.ChatName ? props.ChatName : "default"
-    this.userId = props.userId ? props.ChatName : -1
+function useForceUpdate() {
+  const [value, setValue] = useState(0) // integer state
+  return () => setValue((value) => value + 1) // update the state to force render
+}
 
-    this.state = {
-      text: "",
-    }
-    this.state.messages = [
-      { id: 0, userId: 1, msg: `Hello world` },
-      { id: 1, userId: 1, msg: `id1 Ne lox` },
-      { id: 2, userId: 1, msg: `Sam lox` },
-    ]
-    this.updateInput = this.updateInput.bind(this)
-  }
+function Chat(props) {
+  const _chatId = props.chatID || 0
+  const _userId = props.userId || 0
+  const _groupId = props.groupId || 0
+  const date = JSON.parse(serverChats.get())
 
-  addMessage(msg) {
-    const buffer = this.state.messages
-    buffer.push({
-      id: this.state.messages.length + 1,
-      userId: this.userId,
-      msg: this.state.text,
+  const [chatName, setChatName] = useState(date[_groupId].chats[_chatId].name)
+  const [messages, setMessages] = useState(
+    date[_groupId].chats[_chatId].messages
+  )
+  const [userId] = useState(_userId)
+
+  const [textInput, setTextInput] = useState("")
+  const forceUpdate = useForceUpdate()
+
+  function addMessage() {
+    const buf = messages
+    buf.push({
+      id: messages.length + 1,
+      userId: userId,
+      msg: textInput,
     })
-    this.setState({ messages: buffer })
+    setMessages(buf)
+    setTextInput("")
+    forceUpdate()
   }
-  updateInput(event) {
-    this.setState({ text: event.target.value })
+  function updateInput(event) {
+    setTextInput(event.target.value)
   }
 
-  render() {
-    return (
-      <div className="Chat">
-        <div className="ChatHeader">
-          <div id="chatName">
-            <h1>{this.ChatName}</h1>
-          </div>
-        </div>
-
-        <div className="chatConent">
-          {this.state.messages.map((obj) => {
-            return <Message props={obj} />
-          })}
-        </div>
-
-        <div className="messageInput">
-          <input
-            id="messageTextInput"
-            type="text"
-            onChange={this.updateInput}
-          />
-          <button id="messageSendButton" onClick={() => this.addMessage()} />
-        </div>
+  return (
+    <div className="Chat">
+      <div className="Header">
+        <h1>{chatName}</h1>
       </div>
-    )
-  }
+      <div className="chatConent">
+        {messages.map((obj) => {
+          return <Message props={obj} />
+        })}
+      </div>
+
+      <div className="messageInput">
+        <input
+          id="messageTextInput"
+          type="text"
+          autoComplete="off"
+          value={textInput}
+          onChange={updateInput}
+          onSubmit={addMessage}
+        />
+        <button id="messageSendButton" onClick={addMessage}>
+          Send
+        </button>
+      </div>
+    </div>
+    
+  )
 }
 
 export default Chat

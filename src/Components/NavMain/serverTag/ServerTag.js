@@ -5,11 +5,12 @@ function activateLasers(){
 }
 
 function ServerTag() {
+  const server = ' '
   return (    
 
 
     <div className="serverTag" onClick={activateLasers}>
-      
+      <img src={server.img} />
     </div>
   )
 }

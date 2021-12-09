@@ -9,17 +9,11 @@ import "./App.css"
 
 function App() {
   return (
-    <div className="App">
-      <div className="Container">
-        <NavigationMain />
-        <div className="Container">
-          <NavigationSecondary />
-          <div className="Container">
-            <Chat />
-            <MemberList />
-          </div>
-        </div>
-      </div>
+    <div className="App wrapper">
+      <NavigationMain />
+      <NavigationSecondary />
+      <Chat />
+      <MemberList />
     </div>
   )
 }

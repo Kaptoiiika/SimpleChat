@@ -1,67 +1,49 @@
+.messageInput {
+  display: flex;
+  bottom:0;
+  width: 100%;
+  height: 30px;
+}
+#messageTextInput {
+  width: 100%;
+
+}
 .Chat {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-
-  background: #000000;
-  opacity: 0.7;
-
-  width: 100%;
-  height: 100%;
-}
-.ChatHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #25272a;
-  opacity: 0.75;
-  width: 100%
-}
-#chatName {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #25272a;
-  opacity: 0.75;
-  border-bottom: 2px double black;
-  border-left:2px double black ;
-  background-color: #1e2022;
-  width: 100%;
-}
-#chatName > * {
-  height: 25px;
-  top: 35px;
-  margin-left: 45px;
-  font-family: OMORI_GAME, fantasy;
-  font-size: 35px;
+  height: 100%;    
+  justify-content: space-between;
 }
 .chatConent {
-  border-left:2px double black ;
-  font-size: 25px;
-  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
   height: 100%;
   overflow: auto;
-
-  background-color: #1e2022;
-}
-.messageInput{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 60px;
-  background-color: aliceblue;
-  align-items: center
-}
-.Message{
-  padding-left: 15px;
-
 }
 
-#messageTextInput{
-  width: 100%;
-  font-size: 18px;
+.Message {
+  margin-left: 5px;
+  display: grid;
+
+  grid-template-areas: "avatar name" "avatar userText";
+  grid-template-columns: 40px 1fr;
+  grid-gap: 10px;
 }
-#messageSendButton{
+.Message > * {
+  margin: 0;
+}
+.userText {
+  grid-area: userText;
+}
+.userName {
+  grid-area: name;
+}
+.userAvatar {
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  grid-area: avatar;
   width: 40px;
   height: 40px;
 }

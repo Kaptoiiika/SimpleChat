@@ -7,13 +7,13 @@ import AddServer from './addServer/AddServer.js'
 function NavigationMain() {
   return (
     <div className="NavigationMain" >
-      <MenuTag/>
+      <ServerTag/>
       -------
       <ServerTag />
       <ServerTag />
       <ServerTag />
       -------
-      <AddServer/>
+      <ServerTag/>
     </div>
   )
 }
