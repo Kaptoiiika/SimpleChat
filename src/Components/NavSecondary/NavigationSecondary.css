@@ -9,3 +9,8 @@
     margin: 0.5em 10px;
     font-size: large;
 } 
+.serverContent > .GroupChat > .chatName :hover{
+    background-color: black;
+    opacity: 0.5;
+    cursor: pointer;
+}

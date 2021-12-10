@@ -3,10 +3,14 @@ export class ServerChats {
     this.serverChats = option
   }
   get() {
+    console.log("getData");
     return this.serverChats
   }
   set(obj) {
     this.serverChats = obj
+  }
+  addMessage(){
+    console.log(`pullMessege`);
   }
 }
 

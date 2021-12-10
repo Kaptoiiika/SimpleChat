@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Chat.css"
 import Message from "./Message/Message.js"
 import { serverChats } from "../../Data/Data.js"
@@ -12,6 +12,7 @@ function Chat(props) {
   const _chatId = props.chatID || 0
   const _userId = props.userId || 0
   const _groupId = props.groupId || 0
+
   const date = JSON.parse(serverChats.get())
 
   const [chatName, setChatName] = useState(date[_groupId].chats[_chatId].name)
@@ -63,7 +64,6 @@ function Chat(props) {
         </button>
       </div>
     </div>
-    
   )
 }
 

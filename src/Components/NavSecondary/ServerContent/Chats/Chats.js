@@ -1,5 +1,9 @@
 import React from "react"
 
+let eventChageChat = new CustomEvent("chageChat", {
+  detail: { group: 0, chat: 0 },
+})
+
 function Chats(props) {
   const groupObj = props.chats
 
@@ -13,15 +17,15 @@ function Chats(props) {
 
   return (
     <div className={`GroupChat ${groupObj.id}`} onClick={hideChats}>
-        {groupObj.name}
-        <div className="chatName">
-          {groupObj.chats.map((chatObj) => {
-            return (
-              <p onClick={changeChat.bind(this, groupObj.id, chatObj.id)}>
-                {chatObj.name}
-              </p>
-            )
-          })}
+      {groupObj.name}
+      <div className="chatName">
+        {groupObj.chats.map((chatObj) => {
+          return (
+            <p onClick={changeChat.bind(this, groupObj.id, chatObj.id)}>
+              {chatObj.name}
+            </p>
+          )
+        })}
       </div>
     </div>
   )
